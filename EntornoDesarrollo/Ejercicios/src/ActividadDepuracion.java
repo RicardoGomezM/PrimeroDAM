@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class ActividadDepuracion {
-    final Scanner tec = new Scanner(System.in);
 
     public static void main(String[] args) {
 
+        Scanner tec = new Scanner(System.in);
         double radio, longitud, area;
         System.out.println("Introduce radio de la circunferencia:");
         radio = tec.nextDouble();
