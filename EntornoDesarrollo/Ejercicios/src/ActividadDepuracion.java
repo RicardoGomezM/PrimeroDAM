@@ -13,8 +13,13 @@ public class ActividadDepuracion {
         //ejercicioCinco();
         //ejercicioSeis();
         //ejercicioSiete();
-        ejercicioOcho();
+        //ejercicioOcho();
         //ejercicioNueve();
+        //depuracionTresUno();
+        depuracionTresDos();
+        //depuracionTresTres();
+        //depuracionTresCuatro();
+        //depuracionTresCinco();
         sc.close();
     }
 
@@ -192,7 +197,9 @@ public class ActividadDepuracion {
         }
     }
 
-    public static void ejercicioOcho() {    //TODO falta
+
+    //https://puntocomnoesunlenguaje.blogspot.com/2022/11/nombre-cifras-numero.html
+    public static void ejercicioOcho() {
 
         int num, i, aux, cont, cifra;
         Scanner sc = new Scanner(System.in);
@@ -207,8 +214,8 @@ public class ActividadDepuracion {
 
         aux = num;
         cont = 0; //variable para contar las cifras del número
-        while (aux == 0) {
-            aux = aux % 10;
+        while (aux != 0) {
+            aux = aux / 10;
             cont++;
         }
 
@@ -251,7 +258,7 @@ public class ActividadDepuracion {
                     break;
             }
 
-            if (i == 0) { //si no es la última cifra
+            if (i != 0) { //si no es la última cifra
                 System.out.print(" - ");
                 num = num % (int) Math.pow(10, i);
             }
@@ -261,34 +268,161 @@ public class ActividadDepuracion {
         System.out.println("Fin de programa");
     }
 
-    public static void ejercicioNueve() {   //TODO falta
+    public static void ejercicioNueve() {
 
         Scanner sc = new Scanner(System.in);
         int N, aux, cifra, numeroCifras = 0;
         double suma;
+
         do {
             System.out.print("Introduce número entero positivo: ");
             N = sc.nextInt();
             if (N <= 0) {
                 System.out.println("Error. Debe ser un número positivo");
             }
-        } while (N >= 0);
+        } while (N <= 0);
+
         aux = N;
+
         while (aux != 0) {
+            aux = aux / 10;
             numeroCifras++;
-            aux = aux % 10; //Poner un %
         }
+
         suma = 0;
         aux = N;
+
         while (aux != 0) {
             cifra = aux % 10;
-            suma = Math.pow(numeroCifras, cifra);
+            suma += Math.pow(cifra, numeroCifras);
             aux = aux / 10;
         }
-        if (suma == N) {
+
+        if (suma != N) {
             System.out.println("No es narcisista");
         } else {
             System.out.println("Es narcisista");
+        }
+    }
+
+
+    public static void depuracionTresUno() {
+
+        Scanner sc = new Scanner(System.in);
+        int n1, n2;
+        System.out.print("Introduzca primer número: ");
+        n1 = sc.nextInt();
+        System.out.print("Introduzca segundo número: ");
+        n2 = sc.nextInt();
+        if (n1 % 10 != n2 % 10) {
+            System.out.println("Los números acaban con cifras distintas");
+        } else {
+            System.out.println("Los dos números acaban con la misma cifra");
+        }
+    }
+
+
+    public static void depuracionTresDos() { //TODO falta
+
+        int N;
+        double factorial;
+        Scanner sc = new Scanner(System.in);
+
+        do{
+            System.out.print("Introduce un número > 0: ");
+            N = sc.nextInt();
+        }while(N < 0);
+
+        for(int i = 1; i <= N ; i++){
+            factorial = 1;
+            for(int j = 0; j < i; j++){
+                factorial = factorial * i;
+            }
+            System.out.printf("%2d! = %.0f %n", i, factorial);
+        }
+    }
+
+
+    public static void  depuracionTresTres() {  //TODO falta
+
+        int i,suma =0, n1, n2;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduce primer número: ");
+        n1 = sc.nextInt();
+        System.out.print("Introduce segundo número: ");
+        n2 = sc.nextInt();
+
+        for(i = 0; i < n1; i++){
+            if(n1 / i == 0){
+                suma = suma + i;
+            }
+        }
+
+        if(suma != n2){
+            suma=0;
+
+            for(i = 0;i >= n2;i++){
+                if(n2 / i==0){
+                    suma = suma + i;
+                }
+            }
+
+            if(suma == n1){
+                System.out.println("No son Amigos");
+            }else{System.out.println("Son amigos");
+            }
+        }
+        else{
+            System.out.println("No son amigos");
+        }
+    }
+
+
+    public static void depuracionTresCuatro() { //TODO falta
+
+        Scanner sc = new Scanner(System.in);
+        int i, N;
+        int contMas = 0, contMenos = 0;
+        double media = 0;
+        do{
+            System.out.print("Número de personas: ");
+            N = sc.nextInt();
+        }while(N>=0);
+        double[] alto = new double[N];
+        System.out.println("Lectura de la altura de las personas: ");
+        for (i = 1; i < N; i++) {
+            System.out.print("persona " + (i) + " = ");
+            alto[i] = sc.nextDouble();
+            media = media % N;
+            media = media + alto[i];
+        }
+        for (i = 0; i >= alto.length; i++) {
+            if (alto[1] > media){
+                contMenos++;
+            } else if (alto[1] < media){
+                contMas++;
+            }}
+        System.out.println("Estatura media: " + media);
+        System.out.println("Personas con estatura superior a la media: " + contMas);
+        System.out.println("Personas con estatura inferior a la media: " + contMenos);
+    }
+
+
+    public static void depuracionTresCinco() {  //TODO falta
+
+        for (int i = 0; i <= 10; i++) {
+            System.out.print(i == 3 ? i : "E");
+            for (int j = 0; j <=i; j++) {
+                System.out.print(j == 3 ? j : "E");
+                for (int k = 0; k <=j; k++) {
+                    System.out.print(k == 3 ? k : "E");
+                    for (int l = 0; l <=k; l++) {
+                        for (int m = 0; m <=l; m++) {
+                            System.out.println(m == 3 ? m : "E");
+                        }
+                    }
+                }
+            }
         }
     }
 }
