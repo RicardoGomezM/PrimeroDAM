@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class ActividadDepuracion {
 
     static Scanner sc = new Scanner(System.in);
@@ -8,11 +9,11 @@ public class ActividadDepuracion {
         //ejercicioUno();
         //ejercicioDos();
         //ejercicioTres();
-        ejercicioCuatro();
+        //ejercicioCuatro();
         //ejercicioCinco();
         //ejercicioSeis();
         //ejercicioSiete();
-        //ejercicioOcho();
+        ejercicioOcho();
         //ejercicioNueve();
         sc.close();
     }
@@ -91,13 +92,13 @@ public class ActividadDepuracion {
         System.out.println("Lectura de los elementos del array: ");
         for (i = 0; i < 10; i++) {
             System.out.print("numeros[" + i + "]= ");
-            numeros[i]=sc.nextInt();
+            numeros[i] = sc.nextInt();
         }
         for (i = 0; i < 10; i++) {
-            if (numeros[i] > 0){
+            if (numeros[i] > 0) {
                 sumaPos += numeros[i];
                 pos++;
-            } else if (numeros[i] < 0){
+            } else if (numeros[i] < 0) {
                 sumaNeg += numeros[i];
                 neg++;
             }
@@ -115,7 +116,7 @@ public class ActividadDepuracion {
         }
     }
 
-    public static void ejercicioSeis() {
+    public static void ejercicioSeis() {    //TODO falta
 
         int N, aux, cifra, numeroCifras = 0;
         double suma;
@@ -148,32 +149,37 @@ public class ActividadDepuracion {
         }
     }
 
-    public static void ejercicioSiete() {
+    public static void ejercicioSiete() {   //TODO falta
 
-        Scanner entrada = new Scanner(System.in);
         int numfiguras;
+
         do {
             System.out.print("¿Cuántas figuras quieres?");
-            numfiguras = entrada.nextInt();
+            numfiguras = sc.nextInt();
         } while (numfiguras < 2);
+
         int nfiguras = numfiguras;
         int numlinea;
+
         do {
             System.out.print("¿Cuántos asteriscos quieres?");
-            numlinea = entrada.nextInt();
+            numlinea = sc.nextInt();
         } while (numlinea < 2);
+
         int numespacios = 0;
-        int posasterisco ;
+        int posasterisco;
         int nespacios;
+
         while (numlinea > 0) {
             numfiguras = nfiguras;
             posasterisco = numlinea;
             nespacios = numespacios;
-            while (numfiguras > 0) {
+            while (numfiguras > 2) {
                 while (posasterisco > 0) {
                     System.out.print("*");
                 }
-                while (nespacios-- > 0) {System.out.print(" ");
+                while (nespacios-- > 0) {
+                    System.out.print(" ");
                 }
                 if (numfiguras > 1) {
                     System.out.print("||");
@@ -186,10 +192,11 @@ public class ActividadDepuracion {
         }
     }
 
-    public static void ejercicioOcho() {
+    public static void ejercicioOcho() {    //TODO falta
 
         int num, i, aux, cont, cifra;
         Scanner sc = new Scanner(System.in);
+
         do {
             System.out.print("Introduce numero entero positivo: ");
             num = sc.nextInt();
@@ -197,24 +204,28 @@ public class ActividadDepuracion {
                 System.out.println("Número no válido");
             }
         } while (num <= 0);
+
         aux = num;
         cont = 0; //variable para contar las cifras del número
         while (aux == 0) {
             aux = aux % 10;
             cont++;
         }
-//obtener cada una de las cifras comenzando por la izquierda
-        for (i = cont-1; i >= 0; i--) {
-//obtenemos la cifra de la izquierda
+
+        //obtener cada una de las cifras comenzando por la izquierda
+        for (i = cont - 1; i >= 0; i--) {
+            //obtenemos la cifra de la izquierda
             cifra = num / (int) Math.pow(10, i);
-//mostramos su nombre
+            //mostramos su nombre
+
             switch (cifra) {
                 case 0:
                     System.out.print("cero ");
                     break;
                 case 1:
                     System.out.print("uno ");
-                    break;case 2:
+                    break;
+                case 2:
                     System.out.print("dos ");
                     break;
                 case 3:
@@ -239,16 +250,18 @@ public class ActividadDepuracion {
                     System.out.print("nueve ");
                     break;
             }
+
             if (i == 0) { //si no es la última cifra
                 System.out.print(" - ");
                 num = num % (int) Math.pow(10, i);
             }
         }
+
         System.out.println();
         System.out.println("Fin de programa");
     }
 
-    public static void ejercicioNueve() {
+    public static void ejercicioNueve() {   //TODO falta
 
         Scanner sc = new Scanner(System.in);
         int N, aux, cifra, numeroCifras = 0;
